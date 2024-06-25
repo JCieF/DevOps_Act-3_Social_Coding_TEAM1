@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>IP Location</title>
+</head>
+<body>
+    <h1>IP Location Information</h1>
+    {% if ip_address %}
+        <p><strong>IPv4 Address:</strong> {{ ip_address }}</p>
+        {% if ip_info %}
+            <p><strong>City:</strong> {{ ip_info.city }}</p>
+            <p><strong>Region:</strong> {{ ip_info.region }}</p>
+            <p><strong>Country:</strong> {{ ip_info.country_name }}</p>
+            <p><strong>ASN:</strong> {{ ip_info.asn }}</p>
+        {% else %}
+            <p>Failed to retrieve location information.</p>
+        {% endif %}
+    {% else %}
+        <p>Failed to retrieve IP address.</p>
+    {% endif %}
+</body>
+</html>
